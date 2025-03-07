@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Inter", "sans-serif";
+
+  --color-dark-gray: #374151;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl font-medium;
+    color: var(--color-dark-gray);
+  }
+  h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-medium;
+    color: var(--color-dark-gray);
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-medium;
+    color: var(--color-dark-gray);
+  }
+  h4 {
+    @apply text-xl sm:text-2xl md:text-3xl font-normal;
+    color: var(--color-dark-gray);
+  }
+  p {
+    color: var(--color-dark-gray);
+  }
+}
