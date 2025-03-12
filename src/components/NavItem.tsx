@@ -30,11 +30,11 @@ export const NavItem: React.FC<NavItemProps> = ({
   return (
     <Link
       to={path}
-      className="basis-1/5 flex flex-col items-center justify-end h-full"
+      className="flex h-full basis-1/5 flex-col items-center justify-end"
     >
       <Icon size={24} strokeWidth={2} className="text-(--color-dark-gray)" />
       {isLabel ? (
-        <p className="font-medium leading-none mt-1">{label}</p>
+        <p className="mt-1 leading-none font-medium">{label}</p>
       ) : null}
     </Link>
   );

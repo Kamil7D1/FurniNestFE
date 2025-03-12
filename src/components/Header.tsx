@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
     }
 
     setSearchProduct(
-      mockData.filter((product) => product.name.toLowerCase().includes(value))
+      mockData.filter((product) => product.name.toLowerCase().includes(value)),
     );
     setSearchVisible(true);
   };
@@ -56,19 +56,19 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="fixed flex flex-end justify-between items-end w-full px-4 py-4 bg-white">
+    <header className="flex-end fixed flex w-full items-end justify-between bg-white px-4 py-4">
       <Link to="/">
         <h1>FurniNest</h1>
       </Link>
       <div
         ref={searchRef}
-        className="ml-10 min-w-22 w-full max-w-122 h-8 lg:mx-15 border-b-1 border-(--color-dark-gray)"
+        className="ml-10 h-8 w-full max-w-122 min-w-22 border-b-1 border-(--color-dark-gray) lg:mx-15"
       >
-        <form className="md:relative flex">
+        <form className="flex md:relative">
           <input
             type="text"
             placeholder="Search..."
-            className="w-full"
+            className="w-full focus:outline-none"
             onChange={handleSearch}
             onFocus={() => setSearchVisible(true)}
           />
@@ -81,40 +81,36 @@ export const Header: React.FC = () => {
               <Search color="#374151" size={24} strokeWidth={1.5} />
             </button>
           )}
-          {isSearchVisible && (
+          {searchProduct.length !== 0 && isSearchVisible && (
             <ul
-              className="absolute mx-auto w-full max-w-[600px] min-w-[300px] lg:min-w-[500px] my-[55px] p-[15px] inset-x-0 bg-white rounded-t-[2px]"
+              className="absolute inset-x-0 mx-auto my-[55px] w-full max-w-[600px] min-w-[300px] rounded-t-[2px] bg-white p-[15px] lg:min-w-[500px]"
               style={{
                 boxShadow: "0px 0px 9px -4px rgba(0, 0, 0, 0.3)",
                 WebkitBoxShadow: "0px 0px 9px -4px rgba(0, 0, 0, .3)",
                 MozBoxShadow: "0px 0px 9px -4px rgba(0, 0, 0, .3)",
               }}
             >
-              {searchProduct.length !== 0 ? (
-                searchProduct.map((product, i) => (
-                  <li
-                    key={i}
-                    className="flex w-full items-center justify-between mb-2"
-                  >
-                    <div className="flex items-center">
-                      <img
-                        className="w-[55px] h-[45px] object-cover mr-[5px] rounded-[2px]"
-                        src={product.imageUrl}
-                        alt={product.name}
-                      />
-                      <div className="flex flex-col">
-                        <h4>{product.name}</h4>
-                        <p>{product.category}</p>
-                      </div>
+              {searchProduct.map((product, i) => (
+                <li
+                  key={i}
+                  className="my-1 flex w-full items-center justify-between"
+                >
+                  <div className="flex items-center">
+                    <img
+                      className="mr-[5px] h-[45px] w-[55px] rounded-[2px] object-cover"
+                      src={product.imageUrl}
+                      alt={product.name}
+                    />
+                    <div className="flex flex-col">
+                      <h4>{product.name}</h4>
+                      <p>{product.category}</p>
                     </div>
-                    <p className="font-semibold">
-                      {product.price.toFixed(2) + " " + product.currency}
-                    </p>
-                  </li>
-                ))
-              ) : (
-                <p>Oops, we don't have a product with that name.</p>
-              )}
+                  </div>
+                  <p className="font-semibold">
+                    {product.price.toFixed(2) + " " + product.currency}
+                  </p>
+                </li>
+              ))}
             </ul>
           )}
         </form>
