@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Inter", "sans-serif";
+
+  --color-dark-gray: #374151;
+  --color-peach-cream: #fff3e4;
+  --color-tangerine-orange: #ff8a26;
+}
+
+@layer base {
+  h1 {
+    @apply text-4xl font-medium sm:text-5xl md:text-6xl;
+    color: var(--color-dark-gray);
+  }
+  h2 {
+    @apply text-3xl font-medium sm:text-4xl md:text-5xl;
+    color: var(--color-dark-gray);
+  }
+  h3 {
+    @apply text-2xl font-normal sm:text-3xl;
+    color: var(--color-dark-gray);
+  }
+  h4 {
+    @apply text-xl font-medium md:text-2xl;
+    color: var(--color-dark-gray);
+  }
+  p {
+    color: var(--color-dark-gray);
+  }
+}
