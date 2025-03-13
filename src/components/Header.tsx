@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="flex-end fixed flex w-full items-end justify-between bg-white px-4 py-4">
+    <header className="flex-end fixed z-2137 flex w-full items-end justify-between bg-white px-4 py-4">
       <Link to="/">
         <h1>FurniNest</h1>
       </Link>
