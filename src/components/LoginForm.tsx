@@ -57,10 +57,10 @@ export const LoginForm = () => {
             name="password"
           />
         </div>
-        <Button text="SIGN IN" path="user" />
+        <Button text="SIGN IN" />
         <p className="lg:hidden">
           Don't have an account?{" "}
-          <Link className="underline" to="/register">
+          <Link className="underline" to="/registration">
             Sign up
           </Link>
         </p>

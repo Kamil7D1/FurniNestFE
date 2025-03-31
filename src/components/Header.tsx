@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
           )}
           {searchProduct.length !== 0 && isSearchVisible && (
             <ul
-              className="absolute inset-x-0 mx-auto my-[55px] w-full max-w-[600px] min-w-[300px] rounded-t-[2px] bg-white p-[15px] lg:min-w-[500px]"
+              className="absolute inset-x-0 mx-auto my-[55px] h-auto max-h-[400px] w-full max-w-[600px] min-w-[300px] overflow-auto rounded-t-[2px] bg-white p-[15px] lg:min-w-[500px]"
               style={{
                 boxShadow: "0px 0px 9px -4px rgba(0, 0, 0, 0.3)",
                 WebkitBoxShadow: "0px 0px 9px -4px rgba(0, 0, 0, .3)",
