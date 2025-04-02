@@ -7,21 +7,26 @@ import { Registration } from "../pages/Registration";
 import { Orders } from "../sections/Orders";
 import { Favourite } from "../sections/Favourite";
 import { AccountSettings } from "../sections/AccountSettings";
-// import { AuthContext } from "../context/AuthContext";
+import { AuthProvider } from "../context/AuthProvider";
 
 export const AppRoutes: React.FC = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />}></Route>
-        <Route path="login" element={<Login />}></Route>
-        <Route path="registration" element={<Registration />}></Route>
-        <Route path="profile/" element={<Profile />}>
-          <Route index path="orders" element={<Orders />}></Route>
-          <Route path="favourite" element={<Favourite />}></Route>
-          <Route path="account-settings" element={<AccountSettings />}></Route>
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />}></Route>
+          <Route path="login" element={<Login />}></Route>
+          <Route path="registration" element={<Registration />}></Route>
+          <Route path="profile/" element={<Profile />}>
+            <Route index path="orders" element={<Orders />}></Route>
+            <Route path="favourite" element={<Favourite />}></Route>
+            <Route
+              path="account-settings"
+              element={<AccountSettings />}
+            ></Route>
+          </Route>
         </Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>
 );
