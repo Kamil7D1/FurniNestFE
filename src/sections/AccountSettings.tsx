@@ -2,8 +2,9 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button } from "../components/Button";
 import { CircleAlert } from "lucide-react";
-import { Link } from "react-router";
 import * as Yup from "yup";
+
+import { useAuth } from "../hooks/useAuth";
 
 const AccountSettingsSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -37,15 +38,19 @@ const AccountSettingsSchema = Yup.object().shape({
 });
 
 export const AccountSettings: React.FC = () => {
+  const { customer } = useAuth();
+
+  console.log("ACC SETT", customer);
+
   return (
     <section>
       <h2>Account Settings</h2>
       <h3>Account Data</h3>
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
-          email: "",
+          firstName: customer?.firstName || "",
+          lastName: customer?.lastName || "",
+          email: customer?.email || "",
           password: "",
           confirm: "",
         }}
@@ -114,7 +119,7 @@ export const AccountSettings: React.FC = () => {
               name="password"
             />
           </div>
-          <Button text="SAVE CHANGES" path="user" />
+          <Button text="SAVE CHANGES" type="button" />
         </Form>
       </Formik>
       <p>
@@ -133,7 +138,12 @@ export const AccountSettings: React.FC = () => {
           Make sure you really want to do this - we will not be able to restore
           your account.
         </p>
-        <Button text="Delete Account" path="user" />
+        <Button
+          className="border-(--color-tangerine-red)"
+          text="Delete Account"
+          type="button"
+          variant="warning"
+        />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Button } from "../components/Button";
 import { Link } from "react-router";
 import * as Yup from "yup";
+import { useCustomer } from "../hooks/useCustomer";
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string()
@@ -9,7 +10,7 @@ const SignupSchema = Yup.object().shape({
     .required("Email is required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters long")
-    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    // .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
     .matches(/[a-z]/, "Password must contain at least one lowercase letter")
     .matches(/[0-9]/, "Password must contain at least one digit")
     .matches(
@@ -20,6 +21,8 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const LoginForm = () => {
+  const { login } = useCustomer();
+
   return (
     <Formik
       initialValues={{
@@ -27,8 +30,8 @@ export const LoginForm = () => {
         password: "",
       }}
       validationSchema={SignupSchema}
-      onSubmit={() => {
-        console.log("submit");
+      onSubmit={(values) => {
+        login(values);
       }}
     >
       <Form className="flex w-full flex-col items-center justify-center gap-5">
@@ -57,7 +60,7 @@ export const LoginForm = () => {
             name="password"
           />
         </div>
-        <Button text="SIGN IN" />
+        <Button text="SIGN IN" type="submit" />
         <p className="lg:hidden">
           Don't have an account?{" "}
           <Link className="underline" to="/registration">

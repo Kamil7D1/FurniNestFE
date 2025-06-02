@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
         <p className="">
           Your destination for exceptional furniture for every room!
         </p>
-        <Button text="SHOP FURNITURE" path="/products" />
+        <Button text="SHOP FURNITURE" type="button" />
       </div>
       <div className="hidden h-full w-3/4 lg:flex">
         <img

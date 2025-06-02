@@ -1,9 +1,4 @@
 import { createContext } from "react";
+import { AuthState } from "../types/auth";
 
-interface IAuthContext {
-  email: string;
-  role: string;
-  accessToken: string;
-}
-
-export const AuthContext = createContext<IAuthContext | undefined>(undefined);
+export const AuthContext = createContext<AuthState | undefined>(undefined);

@@ -23,7 +23,7 @@ export const Login: React.FC = () => {
             than one address, track orders and more.
           </p>
           <Link to={"/registration"}>
-            <Button text="CREATE AN ACCOUNT" />
+            <Button text="CREATE AN ACCOUNT" type="button" />
           </Link>
         </div>
       </div>
