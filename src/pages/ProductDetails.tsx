@@ -12,9 +12,9 @@ export const ProductDetails = () => {
     <div className="flex h-screen w-full items-center justify-center p-2">
       <div className="flex flex-col lg:flex-row">
         <img
-          className="rounded-[2px]"
+          className="rounded-[2px] object-fill"
           src="public\images\ottoman.png"
-          alt="about us"
+          alt="ottoman"
         />
         <div className="mt-2 flex flex-col gap-1.5 rounded-[2px] bg-(--color-peach-cream) p-2 lg:mt-0 lg:ml-2">
           <h2>OTTOMAN</h2>

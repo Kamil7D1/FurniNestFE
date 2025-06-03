@@ -5,7 +5,7 @@ export const Favourite: React.FC = () => {
   return (
     <section>
       <h2>Favourite</h2>
-      <Button text="BACK" path="/profile" />
+      <Button text="BACK" type="button" />
     </section>
   );
 };
